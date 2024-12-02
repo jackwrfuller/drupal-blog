@@ -9,9 +9,7 @@ services:
     volumes:
       - /root/.composer
       - /var/www/html/sites
-      - ./web:/app/web
       - ./themes/custom/jwrf:/app/web/themes/custom/jwrf
-      - ./vendor:/app/vendor
     depends_on:
       - db
 

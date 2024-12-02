@@ -51,4 +51,4 @@ RUN \
 RUN chown -R www-data:www-data web/sites web/modules web/themes
 
 # Set the PATH environment variable
-ENV PATH=${PATH}:/app/bin
+ENV PATH=${PATH}:/app/bin:/app/vendor/bin
