@@ -1,0 +1,13 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      https://fonts.googleapis.com/css2?family=JetBrains+Mono: { type: external }
+      https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Space+Grotesk: { type: external }
+global-scripts:
+  js:
+    js/global-scripts.js: {}
+  dependencies:
+    - core/drupal
+
+
