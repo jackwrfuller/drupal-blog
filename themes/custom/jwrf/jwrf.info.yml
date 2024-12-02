@@ -1,0 +1,6 @@
+---
+name: JWRF
+type: theme
+description: "JWRF's custom drupal 11 theme"
+core_version_requirement: '>=11'
+base theme: stable9

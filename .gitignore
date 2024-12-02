@@ -1,0 +1,15 @@
+web/
+app/
+
+# Composer vendor
+composer.lock
+vendor/
+vendor/.git
+
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# .lock files
+*.lock
