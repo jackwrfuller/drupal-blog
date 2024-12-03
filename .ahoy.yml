@@ -45,6 +45,10 @@ commands:
     cmd:
       docker compose exec -T drupal bash -c 'drush sql-dump' > "$@"
 
+  site-install:
+    cmd:
+      source .env && ahoy drush si standard --db-url=mysql://${DB_USER}:${DB_PASS}@mariadb/${DB_NAME} --site-name="JWRF" --account-name="${SU_USER}" --account-pass="${SU_PASS}"
+
 
   confirm:
     cmd: read -r -p "${@} [y/N] " response; [ ${response} = "y" ]

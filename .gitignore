@@ -13,3 +13,5 @@ vendor/.git
 
 # .lock files
 *.lock
+
+.env
