@@ -1,77 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ head_title }}</title>
-  {{ head }}
-</head>
+{% extends "page.html.twig" %}
 
-<body class="{{ body_classes }}">
-  <div class="page-wrapper">
-  <header>
-    <style>
-    .avatar {
-      vertical-align: middle;
-      width: 155px;
-      height: 155px;
-      border-radius: 50%;
-    }
-    #wrapper {
-        width: 100%;
-        clear: both;
-        text-align: center;
-    }
-    </style>
-    <div class="main">
-        <a href="https://jackwrfuller.au/">jackwrfuller</a>
-        <div class="socials">
-            
-            <a rel="me" href="https://github.com/jackwrfuller/" class="social">
-                <img alt="github" src="{{ directory }}/images/social_icons/github.svg">
-            </a>
-            
-            <a rel="me" href="https://gitlab.com/jackwrfuller" class="social">
-                <img alt="gitlab" src="{{ directory }}/images/social_icons/gitlab.svg">
-            </a>
-            
-            <a rel="me" href="https://www.linkedin.com/in/jackwrfuller/" class="social">
-                <img alt="linkedin" src="{{ directory }}/images/social_icons/linkedin.svg">
-            </a>
-            
-        </div>
-    </div>
-    <nav style="margin-bottom: 3rem">
-        
-            <a href="/about" style="margin-left: 0.7em; margin-bottom: 0.5em">/about</a>
-        
-            <a href="/now" style="margin-left: 0.7em; margin-bottom: 0.5em">/now</a>
-        
-            <a href="/projects" style="margin-left: 0.7em; margin-bottom: 0.5em">/projects</a>
-        
-    </nav>
-    <div id="wrapper">
-        <a href="https://jackwrfuller.au/" class="avatar-link">
-            <img src="https://github.com/jackwrfuller.png" class="avatar">
-        </a>
-    </div>
-</header>
-
+{% block header %}
+    {{ parent() }}
     <div class="page-header">
         Posts<span class="primary-color" style="font-size: 1.6em">.</span>
     </div>
-
-  <main role="main">
-    <div class="container">
-      <div class="content">
-        {{ page.content }}
-      </div>
-    </div>
-  </main>
-  <hr>
-  <center><small> {{ page.footer }} </small></center>
-
-  {{ scripts }}
-  </div>
-</body>
-</html>
+{% endblock %}

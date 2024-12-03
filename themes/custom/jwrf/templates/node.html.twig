@@ -8,15 +8,23 @@
   {% endif %}
   {{ title_suffix }}
 
+  <div class="page-header">
+    {{ node.label }}<span class="primary-color" style="font-size: 1.6em">.</span>
+  </div>
+
   {% if display_submitted %}
     <footer>
       {{ author_picture }}
       <div{{ author_attributes }} class="author-date">
-        Posted on {{ node.field_event_date.date|date('U')|format_date('html_date')  }}
+        Posted on {{ node.field_event_date.date|date('U')|format_date('html_date') }}
+
+        <div style="height: 18px;"></div>
         {{ metadata }}
       </div>
     </footer>
   {% endif %}
+
+
 
   <div{{ content_attributes }}>
     {{ content }}

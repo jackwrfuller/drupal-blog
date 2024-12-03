@@ -9,14 +9,7 @@
 
 <body class="{{ body_classes }}">
   <div class="page-wrapper">
-    {# <header>
-    <div class="container">
-      <div class="header-logo">
-        {{ page.header }}
-      </div>
-    </div>
-  </header> #}
-
+  {% block header %}
   <header>
     <style>
     .avatar {
@@ -32,19 +25,19 @@
     }
     </style>
     <div class="main">
-        <a href="https://jackwrfuller.au/">jackwrfuller</a>
+        <a href="/">jackwrfuller</a>
         <div class="socials">
             
             <a rel="me" href="https://github.com/jackwrfuller/" class="social">
-                <img alt="github" src="/social_icons/github.svg">
+                <img alt="github" src="{{ base_path ~ directory }}/images/social_icons/github.svg">
             </a>
             
             <a rel="me" href="https://gitlab.com/jackwrfuller" class="social">
-                <img alt="gitlab" src="/social_icons/gitlab.svg">
+                <img alt="gitlab" src="{{ base_path ~ directory }}/images/social_icons/gitlab.svg">
             </a>
             
             <a rel="me" href="https://www.linkedin.com/in/jackwrfuller/" class="social">
-                <img alt="linkedin" src="/social_icons/linkedin.svg">
+                <img alt="linkedin" src="{{ base_path ~ directory }}/images/social_icons/linkedin.svg">
             </a>
             
         </div>
@@ -59,11 +52,12 @@
         
     </nav>
     <div id="wrapper">
-        <a href="https://jackwrfuller.au/">
+        <a href="/" class="avatar-link">
             <img src="https://github.com/jackwrfuller.png" class="avatar">
         </a>
     </div>
 </header>
+{% endblock %}
 
   <main role="main">
     <div class="container">
