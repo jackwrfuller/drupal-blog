@@ -9,20 +9,12 @@
 
 <body class="{{ body_classes }}">
   <div class="page-wrapper">
-    {# <header>
-    <div class="container">
-      <div class="header-logo">
-        {{ page.header }}
-      </div>
-    </div>
-  </header> #}
-
   <header>
     <style>
     .avatar {
       vertical-align: middle;
-      width: 150px;
-      height: 150px;
+      width: 155px;
+      height: 155px;
       border-radius: 50%;
     }
     #wrapper {
@@ -36,15 +28,15 @@
         <div class="socials">
             
             <a rel="me" href="https://github.com/jackwrfuller/" class="social">
-                <img alt="github" src="/social_icons/github.svg">
+                <img alt="github" src="{{ directory }}/images/social_icons/github.svg">
             </a>
             
             <a rel="me" href="https://gitlab.com/jackwrfuller" class="social">
-                <img alt="gitlab" src="/social_icons/gitlab.svg">
+                <img alt="gitlab" src="{{ directory }}/images/social_icons/gitlab.svg">
             </a>
             
             <a rel="me" href="https://www.linkedin.com/in/jackwrfuller/" class="social">
-                <img alt="linkedin" src="/social_icons/linkedin.svg">
+                <img alt="linkedin" src="{{ directory }}/images/social_icons/linkedin.svg">
             </a>
             
         </div>
@@ -59,11 +51,15 @@
         
     </nav>
     <div id="wrapper">
-        <a href="https://jackwrfuller.au/">
+        <a href="https://jackwrfuller.au/" class="avatar-link">
             <img src="https://github.com/jackwrfuller.png" class="avatar">
         </a>
     </div>
 </header>
+
+    <div class="page-header">
+        Posts<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
 
   <main role="main">
     <div class="container">
