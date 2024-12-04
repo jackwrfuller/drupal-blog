@@ -15,6 +15,7 @@
         }
     ],
     "require": {
+        "cweagans/composer-patches": "^1.7",
         "composer/installers": "^2.0",
         "drupal/ckeditor5_markdown_editor": "^1.0@beta",
         "drupal/core-composer-scaffold": "^11.0",
@@ -33,6 +34,7 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
+            "cweagans/composer-patches": true,
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
@@ -43,6 +45,11 @@
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/prism": {
+                "Prism causes WSOD on field creation for all field types": "https://www.drupal.org/files/issues/2024-12-05/0001-Issue-3491768-Prism-causes-WSOD-on-field-creation-fo_0.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
