@@ -1,13 +1,22 @@
 global-styling:
   css:
     theme:
+      css/prism.css: {}
       css/style.css: {}
       https://fonts.googleapis.com/css2?family=JetBrains+Mono: { type: external }
       https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Space+Grotesk: { type: external }
 global-scripts:
   js:
+    js/prism.js: {}
     js/global-scripts.js: {}
+
   dependencies:
     - core/drupal
+    - core/jquery
+
+
+
+
+
 
 

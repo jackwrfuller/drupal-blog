@@ -16,11 +16,15 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/ckeditor5_markdown_editor": "^1.0@beta",
         "drupal/core-composer-scaffold": "^11.0",
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
         "drupal/google_tag": "^2.0",
-        "drush/drush": "^13.0"
+        "drupal/markdown_easy": "^1.0",
+        "drupal/prism": "^2.2",
+        "drush/drush": "^13.0",
+        "drupal/mathjax": "^4.1"
     },
     "conflict": {
         "drupal/drupal": "*"

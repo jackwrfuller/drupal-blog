@@ -4,8 +4,13 @@ type: theme
 description: "JWRF's custom drupal 11 theme"
 core_version_requirement: '>=11'
 base theme: stable9
+favicon: 
+  use_default: 0
+  path: 'images/favicon/fav.ico'
 libraries:
   - jwrf/global-styling
+  - jwrf/global-scripts
+  - jwrf/prism
 regions:
   header: 'Header'
   content: 'Content'
