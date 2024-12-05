@@ -26,7 +26,9 @@
         "drupal/prism": "^2.2",
         "drush/drush": "^13.0",
         "drupal/mathjax": "^4.1",
-        "drupal/twig_tweak": "^3.4"
+        "drupal/twig_tweak": "^3.4",
+        "drupal/pathauto": "^1.13",
+        "drupal/redirect": "^1.10"
     },
     "conflict": {
         "drupal/drupal": "*"
