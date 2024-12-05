@@ -1,5 +1,6 @@
 @import "parts/_misc.css";
 @import "parts/_header.css";
+@import "parts/_project-card.css";
 
 :root {
   --text-0: rgba(255, 255, 255, 87%);
@@ -182,4 +183,8 @@ img {
 
 .ck_content {
   color: black !important;
+}
+
+article {
+  padding-top: 10px;
 }

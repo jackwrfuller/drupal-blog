@@ -1,0 +1,28 @@
+<project{{ attributes }}>
+    <div class="project-card">
+        {% set image = node.field_image.entity %}
+
+        <img class="card-image" src="{{ image.uri.value | file_url }}">
+        <div class="card-info">
+            <h1 class="card-title">    
+                <a href="{{ url }}">{{ label }}</a>  
+            </h1>
+            <div{{ author_attributes }} class="author-date">
+                {{ node.field_event_date.date|date('U')|format_date('html_date')  }}
+                {{ metadata }}
+            </div>
+            {# <div class="card-description">
+                {{ node.body.summary }}
+            </div> #}
+            {% if node.body.summary is not empty %}
+                <div class="card-description">
+                    {{ node.body.summary }}
+                </div>
+            {% else %}
+                <div class="card-description">
+                    {{ node.body.value | truncate(50, true, '...') }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</project>

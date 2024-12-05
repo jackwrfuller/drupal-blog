@@ -25,7 +25,8 @@
         "drupal/markdown_easy": "^1.0",
         "drupal/prism": "^2.2",
         "drush/drush": "^13.0",
-        "drupal/mathjax": "^4.1"
+        "drupal/mathjax": "^4.1",
+        "drupal/twig_tweak": "^3.4"
     },
     "conflict": {
         "drupal/drupal": "*"

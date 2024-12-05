@@ -1,0 +1,27 @@
+.project-card {
+    min-height:100px;
+    background:var(--bg-2);
+    border:2px solid var(--border-color);
+    border-radius:10px;
+    overflow:hidden;
+    margin: 10px;
+  }
+
+  .card-info {
+    padding:0 24px 24px 24px
+  }
+
+  .card-image {
+    border:unset;
+    width:100%
+  }
+
+  .card-description {
+    margin-top:0.5em;
+    overflow:hidden
+  }
+
+  .card-title {
+    margin-top:0.7em
+  }
+
