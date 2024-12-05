@@ -16,6 +16,7 @@ jobs:
       uses: appleboy/ssh-action@v0.1.2
       with:
         host: ${{ secrets.PI_HOST }}
+        port: ${{ secrets.PI_PORT}}
         username: ${{ secrets.PI_USER }}
         key: ${{ secrets.PI_SSH_KEY }}
         script: |
