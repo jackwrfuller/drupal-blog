@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.PI_USER }}
         key: ${{ secrets.PI_SSH_KEY }}
         script: |
-          cd /dev/drupal-blog
+          cd drupal-blog
           git pull origin live
           ahoy build
           ahoy drush cr
