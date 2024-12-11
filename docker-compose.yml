@@ -10,30 +10,48 @@ services:
       - /root/.composer
       - /var/www/html/sites
       - ./themes/custom/jwrf:/app/web/themes/custom/jwrf
+      - ./themes/custom/umami_analytics:/app/web/themes/custom/umami_analytics
     depends_on:
       - db
 
   db:
-    image: mariadb:latest
-    container_name: mariadb
+    image: mysql:latest
+    container_name: mysql
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASS}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
     volumes:
-      - db_data:/var/lib/mysql
+      - ./db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-  phpmyadmin:
-    image: phpmyadmin:latest
-    container_name: phpmyadmin
+  umami:
+    image: ghcr.io/umami-software/umami:mysql-latest
     ports:
-      - "8081:80"
+      - "3000:3000"
     environment:
-      PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: rootpassword
+      DATABASE_URL: mysql://${DB_USER}:${DB_PASS}@db:3306/umami
+      DATABASE_TYPE: mysql
+      APP_SECRET: replace-me-with-a-random-string
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
 
 volumes:
   db_data:
 
+networks:
+  default:
+    driver: bridge
