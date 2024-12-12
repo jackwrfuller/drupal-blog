@@ -37,7 +37,7 @@ services:
     environment:
       DATABASE_URL: mysql://${DB_USER}:${DB_PASS}@db:3306/umami
       DATABASE_TYPE: mysql
-      APP_SECRET: replace-me-with-a-random-string
+      APP_SECRET: ${UMAMI_SALT}
     depends_on:
       db:
         condition: service_healthy
@@ -48,10 +48,5 @@ services:
       timeout: 5s
       retries: 5
 
-
 volumes:
   db_data:
-
-networks:
-  default:
-    driver: bridge

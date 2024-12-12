@@ -15,3 +15,4 @@ vendor/.git
 *.lock
 
 .env
+db_data
