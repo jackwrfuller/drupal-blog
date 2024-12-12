@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * Umami Analytics main module file.
+ *
+ * Adds the required Javascript to all your Drupal pages to allow tracking by
+ * the Umami website analytics.
+ */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\umami_analytics\Helpers\VisiblityTracker;
+use Drupal\umami_analytics\JavascriptLocalCache;
+
+/**
+ * Implements hook_help().
+ */
+function umami_analytics_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.umami_analytics':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('<a href=":project">Umami</a> is a simple, easy to use, self-hosted web analytics solution. The goal is to provide you with a friendlier, privacy-focused alternative to Google Analytics and a free, open-sourced alternative to paid solutions. Umami collects only the metrics you care about and everything fits on a single page.', [':project' => 'https://umami.is/']) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Insert JavaScript to the appropriate scope/region of the page.
+ */
+function umami_analytics_page_attachments(array &$page) {
+  $config = \Drupal::config('umami_analytics.settings');
+
+  // Add module cache tags.
+  $page['#cache']['tags'] = Cache::mergeTags($page['#cache']['tags'] ?? [], $config->getCacheTags());
+
+  // Return if src or website_id are not set.
+  if (empty($config->get('src')) || empty($config->get('website_id'))) {
+    return;
+  }
+
+  // Return if current request is not in tracking scope.
+  $account = \Drupal::currentUser();
+  /** @var VisiblityTracker $visibilityTracker */
+  $visibilityTracker = \Drupal::service('umami_analytics.visibility');
+  if (!$visibilityTracker->getVisibilityPages() || !$visibilityTracker->getVisibilityRoles($account)) {
+    return;
+  }
+
+  /** @var JavascriptLocalCache $javascript_service */
+  $javascript_service = \Drupal::service('umami_analytics.javascript_cache');
+
+  $attributes = [
+    'async' => TRUE,
+    'defer' => TRUE,
+    'src' => $javascript_service->fetchJavascript(),
+    'data-website-id' => $config->get('website_id'),
+  ];
+
+  if ($config->get('domain_mode') == 1) {
+    $attributes['data-domains'] = $config->get('domains');
+  }
+
+  $page['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => $attributes,
+    ],
+    'umami_analytics_tracking_file',
+  ];
+}
+
+/**
+ * Implements hook_cron().
+ */
+function umami_analytics_cron() {
+  // @TODO.
+  return;
+  // Return prematurely if src or website_id are not set or local caching is
+  // disabled.
+  $config = \Drupal::config('umami_analytics.settings');
+  if (empty($config->get('src')) || empty($config->get('website_id')) || !$config->get('local_cache')) {
+    return;
+  }
+
+  // Regenerate the tracking code file every day.
+  $request_time = \Drupal::time()->getRequestTime();
+  $javascript_service = \Drupal::service('umami_analytics.javascript_cache');
+  if ($request_time - \Drupal::state()->get('umami_analytics.last_cache') >= 86400) {
+    $javascript_service->fetchJavascript(TRUE);
+    \Drupal::state()->set('umami_analytics.last_cache', $request_time);
+  }
+}
