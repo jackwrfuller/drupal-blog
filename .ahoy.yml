@@ -47,7 +47,7 @@ commands:
 
   site-install:
     cmd:
-      source .env && ahoy drush si standard --db-url=mysql://${DB_USER}:${DB_PASS}@mariadb/${DB_NAME} --site-name="JWRF" --account-name="${SU_USER}" --account-pass="${SU_PASS}"
+      source .env && ahoy drush si standard --db-url=mysql://${DB_USER}:${DB_PASS}@mysql/${DB_NAME} --site-name="JWRF" --account-name="${SU_USER}" --account-pass="${SU_PASS}"
 
 
   confirm:
