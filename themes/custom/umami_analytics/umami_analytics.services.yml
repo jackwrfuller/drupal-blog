@@ -1,0 +1,7 @@
+services:
+  umami_analytics.visibility:
+    class: Drupal\umami_analytics\Helpers\VisiblityTracker
+    arguments: [ '@config.factory', '@path_alias.manager', '@path.matcher', '@path.current' ]
+  umami_analytics.javascript_cache:
+    class: Drupal\umami_analytics\JavascriptLocalCache
+    arguments: [ '@http_client', '@file_system', '@file_url_generator', '@config.factory', '@logger.factory', '@state', '@asset.query_string']

@@ -1,0 +1,7 @@
+umami_analytics.admin_settings_form:
+  path: '/admin/config/services/umami-analytics'
+  defaults:
+    _form: '\Drupal\umami_analytics\Form\SettingsForm'
+    _title: 'Umami Analytics'
+  requirements:
+    _permission: 'administer umami analytics'

@@ -1,0 +1,51 @@
+# Schema for the configuration files of the umami_analytics module.
+umami_analytics.settings:
+  type: config_object
+  label: 'Umami Analytics settings'
+  mapping:
+    src:
+      type: string
+      label: 'Umami script URL.'
+    website_id:
+      type: string
+      label: 'Web site ID.'
+    host_url:
+      type: string
+      label: 'URL to send data to another location.'
+    auto_track:
+      type: boolean
+      label: 'Umami automatically tracks all page views and events for you.'
+    do_not_track:
+      type: boolean
+      label: 'Respect the visitor Do Not Track setting.'
+    cache:
+      type: boolean
+      lapel: 'Cache some data to improve the performance of the tracking script.'
+    domain_mode:
+      type: integer
+      label: 'What are you tracking?'
+    domains:
+      type: string
+      label: 'Track only specific domains.'
+    visibility:
+      type: mapping
+      label: 'Visibility'
+      mapping:
+        request_path_mode:
+          type: integer
+          label: 'Add tracking to specific pages'
+        request_path_pages:
+          type: string
+          label: 'Pages by their paths'
+        user_role_mode:
+          type: integer
+          label: 'Add tracking for specific roles'
+        user_role_roles:
+          type: sequence
+          label: 'Roles'
+          sequence:
+            type: string
+            label: 'Role'
+    local_cache:
+      type: boolean
+      label: 'Locally cache tracking code file'

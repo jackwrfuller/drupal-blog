@@ -1,0 +1,14 @@
+src: ''
+website_id: ''
+host_url: ''
+auto_track: true
+do_not_track: false
+cache: false
+domain_mode: 0
+domains: ''
+visibility:
+  request_path_mode: 0
+  request_path_pages: "/admin\n/admin/*\n/batch\n/node/add*\n/node/*/*\n/user/*/*"
+  user_role_mode: 0
+  user_role_roles: {  }
+local_cache: false

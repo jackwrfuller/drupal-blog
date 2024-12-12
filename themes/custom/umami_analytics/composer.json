@@ -1,0 +1,19 @@
+{
+    "name": "drupal/umami_analytics",
+    "description": "Allows your site to be tracked by Umami by adding a Javascript tracking code to every page.",
+    "type": "drupal-module",
+    "keywords": ["Drupal", "Statistics", "Third-party Integration", "Umami"],
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Ivica Puljic",
+            "email": "ivicapuljic@gmail.com"
+        }
+    ],
+    "support": {
+      "issues": "https://www.drupal.org/project/issues/umami_analytics",
+      "source": "https://git.drupalcode.org/project/umami_analytics"
+    },
+    "require": {}
+}
+
