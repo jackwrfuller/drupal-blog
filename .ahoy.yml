@@ -36,7 +36,7 @@ commands:
   import:
     cmd: |
       if [ -e "$@" ] ; then
-        docker compose exec drupal bash -c 'drush sql-drop' &&
+        docker compose exec drupal bash -c 'drush sql-drop -y' &&
         docker compose exec -T drupal bash -c 'drush sql-cli' < "$@"
       else echo "Provided sql file" "$@" "does not exist"
       fi

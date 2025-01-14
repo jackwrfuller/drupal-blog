@@ -24,5 +24,6 @@ jobs:
           git fetch --all && \
           git pull origin live && \
           ahoy build && \
-          ahoy drush cr
+          ahoy site-install && \
+          ahoy import ../complete.sql
 
