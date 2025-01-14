@@ -43,7 +43,7 @@ commands:
 
   dump:
     cmd:
-      docker compose exec -T drupal bash -c 'drush sql-dump' > "$@"
+      docker compose exec -T drupal bash -c 'drush sql-dump --extra-dump=--no-tablespaces' > "$@"
 
   site-install:
     cmd:

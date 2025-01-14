@@ -7,7 +7,7 @@ RUN ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime
 RUN \
     --mount=type=cache,target=/var/cache/apt \
     apt-get update && \
-    apt-get install -y --no-install-recommends libicu-dev vim mariadb-client git unzip rsync sudo && \
+    apt-get install -y --no-install-recommends libicu-dev vim mariadb-client git ranger unzip rsync sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     docker-php-ext-configure intl && \

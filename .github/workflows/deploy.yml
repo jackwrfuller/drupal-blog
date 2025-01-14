@@ -20,8 +20,9 @@ jobs:
         username: ${{ secrets.PI_USER }}
         key: ${{ secrets.PI_SSH_KEY }}
         script: |
-          cd drupal-blog
-          git pull origin live
-          ahoy build
+          cd /home/github/drupal-blog
+          git fetch --all && \
+          git pull origin live && \
+          ahoy build && \
           ahoy drush cr
 
