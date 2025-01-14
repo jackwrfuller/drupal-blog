@@ -35,7 +35,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      DATABASE_URL: mysql://${DB_USER}:${DB_PASS}@db:3306/umami
+      DATABASE_URL: mysql://${DB_USER}:${DB_PASS}@mysql:3306/${DB_NAME}
       DATABASE_TYPE: mysql
       APP_SECRET: ${UMAMI_SALT}
     depends_on:
