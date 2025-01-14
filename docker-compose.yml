@@ -13,6 +13,8 @@ services:
       - ./themes/custom/umami_analytics:/app/web/themes/custom/umami_analytics
     depends_on:
       - db
+    networks:
+      - caddy_net
 
   db:
     image: mysql:latest
@@ -29,6 +31,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - caddy_net
 
   umami:
     image: ghcr.io/umami-software/umami:mysql-latest
@@ -47,6 +51,12 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - caddy_net
 
 volumes:
   db_data:
+
+networks:
+  caddy_net:
+    external: true
