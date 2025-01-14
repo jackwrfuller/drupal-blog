@@ -8,7 +8,7 @@ services:
       - "8080:80"
     volumes:
       - /root/.composer
-      - /var/www/html/sites
+      - ./files:/app/web/sites/default/files
       - ./themes/custom/jwrf:/app/web/themes/custom/jwrf
       - ./themes/custom/umami_analytics:/app/web/themes/custom/umami_analytics
     depends_on:
